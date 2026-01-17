@@ -32,8 +32,8 @@ public class Echdeath : ModNPC
 		NPC.boss = true;
 	}
 
-	public virtual void ScaleExpertStats(int numPlayers, float bossLifeScale)
-	{
+    public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
+    {
 		NPC.damage = 214748364;
 		NPC.lifeMax = 214748364;
 	}
@@ -181,35 +181,20 @@ public class Echdeath : ModNPC
 		}
 	}
 
-	public virtual bool StrikeNPC(ref double damage, int defense, ref float knockback, int hitDirection, ref bool crit)
-	{
-		if (NPC.ai[1] == 1f)
-		{
-			while (NPC.buffType[0] != 0)
-			{
-				NPC.DelBuff(0);
-			}
-			damage = 1.0;
-			crit = false;
-			return false;
-		}
-		return true;
-	}
-
-	public virtual void ModifyHitPlayer(Player target, ref int damage, ref bool crit)
-	{
-		if (target.active && !target.dead && !target.ghost)
-		{
-			Main.NewText(":echdeath:", Color.Red);
-			target.ResetEffects();
-			target.ghost = true;
-			target.KillMe(PlayerDeathReason.ByNPC(NPC.whoAmI), NPC.damage, 0);
-			for (int i = 0; i < 100; i++)
-			{
-				CombatText.NewText(target.Hitbox, Color.Red, Main.rand.Next(NPC.damage), dramatic: true);
-			}
-		}
-	}
+    public override void ModifyHitPlayer(Player target, ref Player.HurtModifiers modifiers)
+    {
+        if (target.active && !target.dead && !target.ghost)
+        {
+            Main.NewText(":echdeath:", Color.Red);
+            target.ResetEffects();
+            target.ghost = true;
+            target.KillMe(PlayerDeathReason.ByNPC(NPC.whoAmI), NPC.damage, 0);
+            for (int i = 0; i < 100; i++)
+            {
+                CombatText.NewText(target.Hitbox, Color.Red, Main.rand.Next(NPC.damage), dramatic: true);
+            }
+        }
+    }
 
 	public override bool CheckDead()
 	{
@@ -240,8 +225,8 @@ public class Echdeath : ModNPC
 		Texture2D value = ModContent.Request<Texture2D>(Texture).Value;
 		Rectangle frame = NPC.frame;
 		Vector2 origin = frame.Size() / 2f;
-		Color newColor = drawColor;
-		newColor = NPC.GetAlpha(newColor);
+		//Color newColor = drawColor;
+		//newColor = NPC.GetAlpha(newColor);
 		SpriteEffects effects = ((NPC.spriteDirection < 0) ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
 		Main.spriteBatch.Draw(value, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), frame, NPC.GetAlpha(drawColor), NPC.rotation, origin, NPC.scale, effects, 0f);
 		return false;
