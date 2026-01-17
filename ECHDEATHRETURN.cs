@@ -1,7 +1,7 @@
 using Terraria.ModLoader;
 
-namespace ECHDEATHRETURN;
+namespace ECHDEATHRETURN144;
 
-public class ECHDEATHRETURNPatch : Mod
+public class ECHDEATHRETURN144 : Mod
 {
 }
