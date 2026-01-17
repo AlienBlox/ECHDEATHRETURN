@@ -1,4 +1,5 @@
-displayName = ECHDEATH RETURN!
+displayName = ECHDEATH RETURN (1.4.4)!
 author = WitherTaco, Fargowilta
 version = 0.1
 includeSource = true
+buildIgnore = ReturnOfEchdeeath/*, tModLoader.targets

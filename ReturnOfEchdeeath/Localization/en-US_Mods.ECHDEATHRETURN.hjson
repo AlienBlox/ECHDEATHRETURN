@@ -1,0 +1,11 @@
+ReturnOfEchdeeath: {
+	NPCs.Echdeath.DisplayName: Echdeath
+	PandorasCurse.DisplayName: Pandora's Curse
+
+	Items: {
+		SoulofCreation: {
+			DisplayName: Soul of Creation
+			Tooltip: The soul of creation.
+		}
+	}
+}

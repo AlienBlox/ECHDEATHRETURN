@@ -1,0 +1,7 @@
+ECHDEATH RETURN! 1.4.4 is a pretty cool mod, it does...this. Modify this file with a description of your mod.
+This mod brings back the echdeath. (1.4.4 ported version)
+Credit to WitherTaco for the mod, Credit to Fargowilta for original echdeath, ceiling of moon lord, guntera.
+If original authors(Fargowilta / WitherTaco) wants to delete this mod, please comment.
+
+Changes:
+Soulof Creation accessory effects nerfed

@@ -1,0 +1,3 @@
+displayName = ECHDEATH RETURN! 1.4.4
+author = WitherTaco, Fargowilta, Zenith
+version = 0.7.1

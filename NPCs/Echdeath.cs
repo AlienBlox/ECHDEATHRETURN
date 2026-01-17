@@ -5,7 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ECHDEATHRETURN144.NPCs;
+namespace ECHDEATHRETURN.NPCs;
 
 [AutoloadBossHead]
 public class Echdeath : ModNPC

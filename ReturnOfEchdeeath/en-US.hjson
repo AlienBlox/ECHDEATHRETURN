@@ -1,0 +1,61 @@
+Mods: {
+	ReturnOfEchdeeath: {
+		NPCs: {
+			Echdeath.DisplayName: Echdeath
+			CeilingOfMoonLord.DisplayName: Ceiling Of Moon Lord
+			CeilingOfMoonLordEye.DisplayName: Ceiling Of Moon Lord Eye
+			GunCelebration.DisplayName: Gun Celebration
+			GunMagnum.DisplayName: Gun Magnum
+			GunQuad.DisplayName: Gun Quad
+			GunShotgun.DisplayName: Gun Shotgun
+			GunSniper.DisplayName: Gun Sniper
+			Guntera.DisplayName: Guntera
+			GunteraHook.DisplayName: Guntera Hook
+			GunteraTentacle.DisplayName: Guntera Tentacle
+			GunUzi.DisplayName: Gun Uzi
+			GunteraTantacle.DisplayName: Guntera Tantacle
+			CeilingOfMoonLordFace.DisplayName: Ceiling Of Moon Lord Face
+		}
+
+		Items: {
+			PandorasCurse: {
+				Tooltip: ""
+				DisplayName: Pandoras Curse
+			}
+
+			MoonLordsCurse: {
+				DisplayName: Moon Lords Curse
+				Tooltip: ""
+			}
+
+			PlanteraCurse: {
+				DisplayName: Plantera Curse
+				Tooltip: ""
+			}
+
+			SoulofCreation: {
+				DisplayName: Soulof Creation
+				Tooltip: ""
+			}
+		}
+
+		Projectiles: {
+			CeilingProj.DisplayName: Ceiling Proj
+			GunteraBullet.DisplayName: Guntera Bullet
+			CeilingSphere.DisplayName: Ceiling Sphere
+			CeilingDeathray.DisplayName: Ceiling Deathray
+		}
+
+		Buffs: {
+			Gun: {
+				DisplayName: Gun
+				Description: Mods.ReturnOfEchdeeath.Buffs.Gun.Description
+			}
+
+			Moonified: {
+				DisplayName: Moonified
+				Description: Mods.ReturnOfEchdeeath.Buffs.Moonified.Description
+			}
+		}
+	}
+}

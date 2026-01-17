@@ -1,0 +1,80 @@
+using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.GameContent;
+using Terraria.ModLoader;
+
+namespace ReturnOfEchdeeath.NPCs
+{
+	// Token: 0x020000A5 RID: 165
+	public class CeilingProj : ModProjectile
+	{
+		// Token: 0x0600042F RID: 1071 RVA: 0x00020DDB File Offset: 0x0001EFDB
+		public override void SetStaticDefaults()
+		{
+			base.DisplayName.Equals("Ceiling of Moon Lord");
+		}
+
+		// Token: 0x06000430 RID: 1072 RVA: 0x00020DF0 File Offset: 0x0001EFF0
+		public override void SetDefaults()
+		{
+			Projectile.width = 420;
+			Projectile.height = 190;
+			Projectile.ignoreWater = true;
+			Projectile.tileCollide = false;
+			Projectile.hide = true;
+		}
+
+		// Token: 0x06000431 RID: 1073 RVA: 0x00020E41 File Offset: 0x0001F041
+		public override void DrawBehind(int index, List< int > behindNPCsAndTiles, List< int > behindNPCs, List< int > behindProjectiles, List< int > overPlayers, List< int > overWiresUI)
+		{
+			if (Projectile.hide)
+			{
+				behindNPCs.Add(index);
+			}
+		}
+
+		// Token: 0x06000432 RID: 1074 RVA: 0x00020E58 File Offset: 0x0001F058
+		public override void AI()
+		{
+			int ai = (int)Projectile.ai[1];
+			if (Projectile.ai[1] >= 0f && Projectile.ai[1] < 200f && Main.npc[ai].active && Main.npc[ai].type == ModContent.NPCType<CeilingOfMoonLord>())
+			{
+				Projectile.Center = Main.npc[ai].Center;
+				Projectile.timeLeft = 2;
+				return;
+			}
+			Projectile.Kill();
+		}
+
+		// Token: 0x06000433 RID: 1075 RVA: 0x00002050 File Offset: 0x00000250
+		public override bool? CanDamage()
+		{
+			return false;
+		}
+
+		// Token: 0x06000434 RID: 1076 RVA: 0x00020333 File Offset: 0x0001E533
+		public override Color? GetAlpha(Color lightColor)
+		{
+			return new Color?(Color.White);
+		}
+
+		// Token: 0x06000435 RID: 1077 RVA: 0x00020EEC File Offset: 0x0001F0EC
+		public override bool PreDraw(ref Color lightColor)
+		{
+			Texture2D texture2D13 = TextureAssets.Projectile[Type].Value;
+			int num156 = TextureAssets.Projectile[Type].Value.Height / Main.projFrames[Projectile.type];
+			int y3 = num156 * Projectile.frame;
+			Rectangle rectangle = new Rectangle(0, y3, texture2D13.Width, num156);
+			Vector2 origin2 = Utils.Size(rectangle) / 2f;
+			for (int i = 0; i < Main.screenWidth; i += 210)
+			{
+				Vector2 drawPos = new Vector2(Main.screenPosition.X + (float)i, Projectile.Center.Y - 50f);
+				Main.spriteBatch.Draw(texture2D13, drawPos - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Rectangle?(rectangle), Projectile.GetAlpha(lightColor), Projectile.rotation, origin2, Projectile.scale, SpriteEffects.None, 0f);
+			}
+			return false;
+		}
+	}
+}
